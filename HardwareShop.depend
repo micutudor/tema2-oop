@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1670872717 source:c:\users\tudor\desktop\hardwareshop\produs.cpp
+	<iostream>
+	"string.h"
+	"Produs.h"
+	"NotNullException.h"
+	"GreaterThanZeroException.h"
+
+1670771092 c:\users\tudor\desktop\hardwareshop\produs.h
+	<iostream>
+
+1670810646 source:c:\users\tudor\desktop\hardwareshop\main.cpp
+	<iostream>
+	<cstring>
+	<vector>
+	"Magazin.h"
+	"Produs.h"
+	"Calculator.h"
+	"Telefon.h"
+	"Televizor.h"
+	"NotNullException.h"
+	"GreaterThanZeroException.h"
+
+1670771095 c:\users\tudor\desktop\hardwareshop\calculator.h
+	<iostream>
+	"Produs.h"
+
+1670771098 c:\users\tudor\desktop\hardwareshop\telefon.h
+	<iostream>
+	"Produs.h"
+
+1670801871 source:c:\users\tudor\desktop\hardwareshop\calculator.cpp
+	<iostream>
+	"string.h"
+	"Calculator.h"
+	"NotNullException.h"
+	"GreaterThanZeroException.h"
+
+1670802105 source:c:\users\tudor\desktop\hardwareshop\telefon.cpp
+	<iostream>
+	"string.h"
+	"Telefon.h"
+	"NotNullException.h"
+	"GreaterThanZeroException.h"
+
+1670801939 source:c:\users\tudor\desktop\hardwareshop\televizor.cpp
+	<iostream>
+	"string.h"
+	"Televizor.h"
+	"NotNullException.h"
+	"GreaterThanZeroException.h"
+
+1670771083 c:\users\tudor\desktop\hardwareshop\televizor.h
+	<iostream>
+	"Produs.h"
+
+1670777782 c:\users\tudor\desktop\hardwareshop\notnullexception.h
+	<exception>
+
+1670801093 c:\users\tudor\desktop\hardwareshop\greaterthanzeroexception.h
+	<exception>
+
+1670878499 c:\users\tudor\desktop\hardwareshop\magazin.h
+	<vector>
+	<memory>
+	"string.h"
+	"Produs.h"
+
+1670879496 source:c:\users\tudor\desktop\hardwareshop\magazin.cpp
+	<iostream>
+	<cstring>
+	<vector>
+	<memory>
+	"Magazin.h"
+	"Produs.h"
+	"Calculator.h"
+	"Telefon.h"
+	"Televizor.h"
+	"NotNullException.h"
+	"GreaterThanZeroException.h"
+
