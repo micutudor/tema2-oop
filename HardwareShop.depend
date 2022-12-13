@@ -164,3 +164,67 @@
 	"NotNullException.h"
 	"GreaterThanZeroException.h"
 
+1670943654 source:d:\hardwareshop\magazin.cpp
+	<iostream>
+	<cstring>
+	<vector>
+	<memory>
+	"Magazin.h"
+	"Produs.h"
+	"Calculator.h"
+	"Telefon.h"
+	"Televizor.h"
+	"NotNullException.h"
+	"GreaterThanZeroException.h"
+
+1670878500 d:\hardwareshop\magazin.h
+	<vector>
+	<memory>
+	"string.h"
+	"Produs.h"
+
+1670943892 d:\hardwareshop\produs.h
+	<iostream>
+	"string.h"
+
+1670943902 d:\hardwareshop\calculator.h
+	<iostream>
+	"string.h"
+	"Produs.h"
+
+1670943912 d:\hardwareshop\telefon.h
+	<iostream>
+	"string.h"
+	"Produs.h"
+
+1670943918 d:\hardwareshop\televizor.h
+	<iostream>
+	"string.h"
+	"Produs.h"
+
+1670944704 d:\hardwareshop\notnullexception.h
+	<exception>
+
+1670801094 d:\hardwareshop\greaterthanzeroexception.h
+	<exception>
+
+1670945124 source:d:\hardwareshop\main.cpp
+	<iostream>
+	<cstring>
+	<vector>
+	"Magazin.h"
+	"Produs.h"
+	"Calculator.h"
+	"Telefon.h"
+	"Televizor.h"
+	"NotNullException.h"
+	"GreaterThanZeroException.h"
+
+1670945074 source:d:\hardwareshop\produs.cpp
+	<iostream>
+	"string.h"
+	"Produs.h"
+	"NotNullException.h"
+	"GreaterThanZeroException.h"
+	"string.h"
+

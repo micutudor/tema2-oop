@@ -168,5 +168,5 @@ int Telefon::getCapacitateBaterie() const
 
 void Telefon::afiseaza() const
 {
-    std::cout << *this;
+    std::cout << "[TELEFON]:" << *this;
 }

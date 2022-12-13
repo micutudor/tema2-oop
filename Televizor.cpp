@@ -132,5 +132,5 @@ std::string Televizor::getClasaConsum() const
 
 void Televizor::afiseaza() const
 {
-    std::cout << *this;
+    std::cout << "[TELEVIZOR]:" << *this;
 }

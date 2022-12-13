@@ -173,5 +173,5 @@ int Calculator::getMemorieStocare() const
 
 void Calculator::afiseaza() const
 {
-    std::cout << *this;
+    std::cout << "[CALCULATOR]:" << *this;
 }
