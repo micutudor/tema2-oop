@@ -6,18 +6,12 @@
 #include"NotNullException.h"
 #include"GreaterThanZeroException.h"
 
-Telefon::Telefon(int id, const char* denumire, const char* marca, const char* descriere, float pret,
-                    float dimensiuneEcran, const char* tipRetea, int memorieRAM, int memorieStocare, float rezolutieCamera, int capacitateBaterie)
+Telefon::Telefon(int id, const std::string denumire, const std::string marca, const std::string descriere, float pret,
+                    float dimensiuneEcran, const std::string tipRetea, int memorieRAM, int memorieStocare, float rezolutieCamera, int capacitateBaterie)
         : Produs(id, denumire, marca, descriere, pret)
 {
-    size_t len;
-
     this->dimensiuneEcran = dimensiuneEcran;
-
-    len = strlen(tipRetea);
-    this->tipRetea = new char[len + 1];
-    strcpy(this->tipRetea, tipRetea);
-
+    this->tipRetea = tipRetea;
     this->memorieRAM = memorieRAM;
     this->memorieStocare = memorieStocare;
     this->rezolutieCamera = rezolutieCamera;
@@ -27,17 +21,14 @@ Telefon::Telefon(int id, const char* denumire, const char* marca, const char* de
 Telefon::Telefon() : Produs()
 {
     dimensiuneEcran = 0;
-    tipRetea = NULL;
+    tipRetea = "";
     memorieRAM = 0;
     memorieStocare = 0;
     rezolutieCamera = 0;
     capacitateBaterie = 0;
 }
 
-Telefon::~Telefon()
-{
-    delete[] this->tipRetea;
-}
+Telefon::~Telefon() = default;
 
 Telefon& Telefon::operator=(const Telefon &rhs)
 {
@@ -75,9 +66,9 @@ std::istream& operator>>(std::istream& is, Telefon &telefon){
     is >> dimensiuneEcran;
     telefon.setDimensiuneEcran(dimensiuneEcran);
     std::cout << "Tip retea: ";
-    char* buff = new char[256];
+    std::string buff;
     fflush(stdin);
-    is.getline(buff, 256);
+    std::getline(std::cin, buff);
     telefon.setTipRetea(buff);
     std::cout << "RAM: ";
     int memorieRAM;
@@ -110,19 +101,15 @@ float Telefon::getDimensiuneEcran() const
     return this->dimensiuneEcran;
 }
 
-void Telefon::setTipRetea(const char* tipRetea)
+void Telefon::setTipRetea(const std::string tipRetea)
 {
-    if (strlen(tipRetea) == 0)
+    if (tipRetea.length() == 0)
         throw NotNullException();
 
-    delete[] this->tipRetea;
-
-    size_t len = strlen(tipRetea);
-    this->tipRetea = new char[len + 1];
-    strcpy(this->tipRetea, tipRetea);
+    this->tipRetea = tipRetea;
 }
 
-char* Telefon::getTipRetea() const
+std::string Telefon::getTipRetea() const
 {
     return this->tipRetea;
 }

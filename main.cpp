@@ -57,9 +57,9 @@ int main()
                 while (i < n)
                 {
                     std::cout<< "Categorie produs: ";
-                    char categorie[255];
+                    std::string categorie;
                     fflush(stdin);
-                    std::cin.getline(categorie, 256);
+                    std::getline(std::cin, categorie);
 
                     if (Magazin::adaugaProdus(categorie))
                         i ++;

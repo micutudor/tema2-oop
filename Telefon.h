@@ -2,6 +2,7 @@
 #define TELEFON_H_INCLUDED
 
 #include<iostream>
+#include"string.h"
 
 #include"Produs.h"
 
@@ -9,15 +10,15 @@ class Telefon : public Produs
 {
 private:
     float dimensiuneEcran;
-    char* tipRetea;
+    std::string tipRetea;
     int memorieRAM;
     int memorieStocare;
     float rezolutieCamera;
     int capacitateBaterie;
 
 public:
-    Telefon(int id, const char* denumire, const char* marca, const char* descriere, float pret,
-            float dimensiuneEcran, const char* tipRetea, int memorieRAM, int memorieStocare, float rezolutieCamera, int capacitateBaterie);
+    Telefon(int id, const std::string denumire, const std::string marca, const std::string descriere, float pret,
+            float dimensiuneEcran, const std::string tipRetea, int memorieRAM, int memorieStocare, float rezolutieCamera, int capacitateBaterie);
 
     Telefon();
 
@@ -33,9 +34,9 @@ public:
 
     float getDimensiuneEcran() const;
 
-    void setTipRetea(const char* tipRetea);
+    void setTipRetea(const std::string tipRetea);
 
-    char* getTipRetea() const;
+    std::string getTipRetea() const;
 
     void setMemorieRAM(int memorieRAM);
 

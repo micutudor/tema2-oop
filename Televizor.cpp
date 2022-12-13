@@ -6,41 +6,27 @@
 #include"NotNullException.h"
 #include"GreaterThanZeroException.h"
 
-Televizor::Televizor(int id, const char* denumire, const char* marca, const char* descriere, float pret,
-                     float dimensiuneEcran, const char* tipDisplay, const char* rezolutieEcran, const char* clasaConsum)
+Televizor::Televizor(int id, const std::string denumire, const std::string marca, const std::string descriere, float pret,
+                     float dimensiuneEcran, const std::string tipDisplay, const std::string rezolutieEcran, const std::string clasaConsum)
           : Produs(id, denumire, marca, descriere, pret)
 {
     size_t len;
 
     this->dimensiuneEcran = dimensiuneEcran;
-
-    len = strlen(tipDisplay);
-    this->tipDisplay = new char[len + 1];
-    strcpy(this->tipDisplay, tipDisplay);
-
-    len = strlen(rezolutieEcran);
-    this->rezolutieEcran = new char[len + 1];
-    strcpy(this->rezolutieEcran, rezolutieEcran);
-
-    len = strlen(clasaConsum);
-    this->clasaConsum = new char[len + 1];
-    strcpy(this->clasaConsum, clasaConsum);
+    this->tipDisplay = tipDisplay;
+    this->rezolutieEcran = rezolutieEcran;
+    this->clasaConsum = clasaConsum;
 }
 
 Televizor::Televizor() : Produs()
 {
     dimensiuneEcran = 0;
-    tipDisplay = NULL;
-    rezolutieEcran = NULL;
-    clasaConsum = NULL;
+    tipDisplay = "";
+    rezolutieEcran = "";
+    clasaConsum = "";
 }
 
-Televizor::~Televizor()
-{
-    delete[] this->tipDisplay;
-    delete[] this->rezolutieEcran;
-    delete[] this->clasaConsum;
-}
+Televizor::~Televizor() = default;
 
 Televizor& Televizor::operator=(const Televizor &rhs)
 {
@@ -78,17 +64,17 @@ std::istream& operator>>(std::istream& is, Televizor &televizor){
     is >> dimensiuneEcran;
     televizor.setDimensiuneEcran(dimensiuneEcran);
     std::cout << "Tip display: ";
-    char* buff = new char[256];
+    std::string buff;
     fflush(stdin);
-    is.getline(buff, 256);
+    std::getline(std::cin, buff);
     televizor.setTipDisplay(buff);
     std::cout << "Rezolutie ecran: ";
     fflush(stdin);
-    is.getline(buff, 256);
+    std::getline(std::cin, buff);
     televizor.setRezolutieEcran(buff);
     std::cout << "Clasa consum: ";
     fflush(stdin);
-    is.getline(buff, 256);
+    std::getline(std::cin, buff);
     televizor.setClasaConsum(buff);
 }
 
@@ -105,53 +91,41 @@ float Televizor::getDimensiuneEcran() const
     return this->dimensiuneEcran;
 }
 
-void Televizor::setTipDisplay(const char* tipDisplay)
+void Televizor::setTipDisplay(const std::string tipDisplay)
 {
-    if (strlen(tipDisplay) == 0)
+    if (tipDisplay.length() == 0)
         throw NotNullException();
 
-    delete[] this->tipDisplay;
-
-    size_t len = strlen(tipDisplay);
-    this->tipDisplay = new char[len + 1];
-    strcpy(this->tipDisplay, tipDisplay);
+    this->tipDisplay = tipDisplay;
 }
 
-char* Televizor::getTipDisplay() const
+std::string Televizor::getTipDisplay() const
 {
     return this->tipDisplay;
 }
 
-void Televizor::setRezolutieEcran(const char* rezolutieEcran)
+void Televizor::setRezolutieEcran(const std::string rezolutieEcran)
 {
-    if (strlen(rezolutieEcran) == 0)
+    if (rezolutieEcran.length() == 0)
         throw NotNullException();
 
-    delete[] this->rezolutieEcran;
-
-    size_t len = strlen(rezolutieEcran);
-    this->rezolutieEcran = new char[len + 1];
-    strcpy(this->rezolutieEcran, rezolutieEcran);
+    this->rezolutieEcran = rezolutieEcran;
 }
 
-char* Televizor::getRezolutieEcran() const
+std::string Televizor::getRezolutieEcran() const
 {
     return this->rezolutieEcran;
 }
 
-void Televizor::setClasaConsum(const char* clasaConsum)
+void Televizor::setClasaConsum(const std::string clasaConsum)
 {
-    if (strlen(clasaConsum) == 0)
+    if (clasaConsum.length() == 0)
         throw NotNullException();
 
-    delete[] this->clasaConsum;
-
-    size_t len = strlen(clasaConsum);
-    this->clasaConsum = new char[len + 1];
-    strcpy(this->clasaConsum, clasaConsum);
+    this->clasaConsum = clasaConsum;
 }
 
-char* Televizor::getClasaConsum() const
+std::string Televizor::getClasaConsum() const
 {
     return this->clasaConsum;
 }

@@ -6,48 +6,30 @@
 #include"NotNullException.h"
 #include"GreaterThanZeroException.h"
 
-Calculator::Calculator(int id, const char* denumire, const char* marca, const char* descriere, float pret,
-                       float dimensiuneEcran, const char* modelProcesor, const char* modelPlacaVideo, int memorieRAM, const char* tipStocare,
+Calculator::Calculator(int id, const std::string denumire, const std::string marca, const std::string descriere, float pret,
+                       float dimensiuneEcran, const std::string modelProcesor, const std::string modelPlacaVideo, int memorieRAM, const std::string tipStocare,
                        int memorieStocare)
     : Produs(id, denumire, marca, descriere, pret)
 {
-    size_t len;
-
     this->dimensiuneEcran = dimensiuneEcran;
-
-    len = strlen(modelProcesor);
-    this->modelProcesor = new char[len + 1];
-    strcpy(this->modelProcesor, modelProcesor);
-
-    len = strlen(modelPlacaVideo);
-    this->modelPlacaVideo = new char[len + 1];
-    strcpy(this->modelPlacaVideo, modelPlacaVideo);
-
+    this->modelProcesor = modelProcesor;
+    this->modelPlacaVideo = modelPlacaVideo;
     this->memorieRAM = memorieRAM;
-
-    len = strlen(tipStocare);
-    this->tipStocare = new char[len + 1];
-    strcpy(this->tipStocare, tipStocare);
-
+    this->tipStocare = tipStocare;
     this->memorieStocare = memorieStocare;
 }
 
 Calculator::Calculator() : Produs()
 {
     dimensiuneEcran = 0;
-    modelProcesor = NULL;
-    modelPlacaVideo = NULL;
+    modelProcesor = "";
+    modelPlacaVideo = "";
     memorieRAM = 0;
-    tipStocare = NULL;
+    tipStocare = "";
     memorieStocare = 0;
 }
 
-Calculator::~Calculator()
-{
-    delete[] this->modelProcesor;
-    delete[] this->modelPlacaVideo;
-    delete[] this->tipStocare;
-}
+Calculator::~Calculator() = default;
 
 Calculator& Calculator::operator=(const Calculator &rhs)
 {
@@ -89,13 +71,13 @@ std::istream& operator>>(std::istream& is, Calculator &calculator){
     is >> dimensiuneEcran;
     calculator.setDimensiuneEcran(dimensiuneEcran);
     std::cout << "Model procesor: ";
-    char* buff = new char[256];
+    std::string buff;
     fflush(stdin);
-    is.getline(buff, 256);
+    std::getline(std::cin, buff);
     calculator.setModelProcesor(buff);
     std::cout << "Model placa video: ";
     fflush(stdin);
-    is.getline(buff, 256);
+    std::getline(std::cin, buff);
     calculator.setModelPlacaVideo(buff);
     std::cout << "RAM: ";
     int memorieRAM;
@@ -103,7 +85,7 @@ std::istream& operator>>(std::istream& is, Calculator &calculator){
     calculator.setMemorieRAM(memorieRAM);
     std::cout << "Tip stocare: ";
     fflush(stdin);
-    is.getline(buff, 256);
+    std::getline(std::cin, buff);
     calculator.setTipStocare(buff);
     std::cout << "Stocare: ";
     int memorieStocare;
@@ -124,36 +106,28 @@ float Calculator::getDimensiuneEcran() const
     return this->dimensiuneEcran;
 }
 
-void Calculator::setModelProcesor(const char* modelProcesor)
+void Calculator::setModelProcesor(const std::string modelProcesor)
 {
-    if (strlen(modelProcesor) == 0)
+    if (modelProcesor.length() == 0)
         throw NotNullException();
 
-    delete[] this->modelProcesor;
-
-    size_t len = strlen(modelProcesor);
-    this->modelProcesor = new char[len + 1];
-    strcpy(this->modelProcesor, modelProcesor);
+    this->modelProcesor = modelProcesor;
 }
 
-char* Calculator::getModelProcesor() const
+std::string Calculator::getModelProcesor() const
 {
     return this->modelProcesor;
 }
 
-void Calculator::setModelPlacaVideo(const char* modelPlacaVideo)
+void Calculator::setModelPlacaVideo(const std::string modelPlacaVideo)
 {
-    if (strlen(modelPlacaVideo) == 0)
+    if (modelPlacaVideo.length() == 0)
         throw NotNullException();
 
-    delete[] this->modelPlacaVideo;
-
-    size_t len = strlen(modelPlacaVideo);
-    this->modelPlacaVideo = new char[len + 1];
-    strcpy(this->modelPlacaVideo, modelPlacaVideo);
+    this->modelPlacaVideo = modelPlacaVideo;
 }
 
-char* Calculator::getModelPlacaVideo() const
+std::string Calculator::getModelPlacaVideo() const
 {
     return this->modelPlacaVideo;
 }
@@ -171,19 +145,15 @@ int Calculator::getMemorieRAM() const
     return this->memorieRAM;
 }
 
-void Calculator::setTipStocare(const char* tipStocare)
+void Calculator::setTipStocare(const std::string tipStocare)
 {
-    if (strlen(tipStocare) == 0)
+    if (tipStocare.length() == 0)
         throw NotNullException();
 
-    delete[] this->tipStocare;
-
-    size_t len = strlen(tipStocare);
-    this->tipStocare = new char[len + 1];
-    strcpy(this->tipStocare, tipStocare);
+    this->tipStocare = tipStocare;
 }
 
-char* Calculator::getTipStocare() const
+std::string Calculator::getTipStocare() const
 {
     return this->tipStocare;
 }

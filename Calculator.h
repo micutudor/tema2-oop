@@ -3,21 +3,23 @@
 
 #include<iostream>
 
+#include"string.h"
+
 #include"Produs.h"
 
 class Calculator : public Produs
 {
 private:
     float dimensiuneEcran;
-    char* modelProcesor;
-    char* modelPlacaVideo;
+    std::string modelProcesor;
+    std::string modelPlacaVideo;
     int memorieRAM;
-    char* tipStocare;
+    std::string tipStocare;
     int memorieStocare;
 
 public:
-    Calculator(int id, const char* denumire, const char* marca, const char* descriere, float pret,
-               float dimensiuneEcran, const char* modelProcesor, const char* modelPlacaVideo, int memorieRAM, const char* tipStocare, int memorieStocare);
+    Calculator(int id, const std::string denumire, const std::string marca, const std::string descriere, float pret,
+               float dimensiuneEcran, const std::string modelProcesor, const std::string modelPlacaVideo, int memorieRAM, const std::string tipStocare, int memorieStocare);
 
     Calculator();
 
@@ -33,21 +35,21 @@ public:
 
     float getDimensiuneEcran() const;
 
-    void setModelProcesor(const char* modelProcesor);
+    void setModelProcesor(const std::string modelProcesor);
 
-    char* getModelProcesor() const;
+    std::string getModelProcesor() const;
 
-    void setModelPlacaVideo(const char* modelPlacaVideo);
+    void setModelPlacaVideo(const std::string modelPlacaVideo);
 
-    char* getModelPlacaVideo() const;
+    std::string getModelPlacaVideo() const;
 
     void setMemorieRAM(int memorieRAM);
 
     int getMemorieRAM() const;
 
-    void setTipStocare(const char* tipStocare);
+    void setTipStocare(const std::string tipStocare);
 
-    char* getTipStocare() const;
+    std::string getTipStocare() const;
 
     void setMemorieStocare(int memorieStocare);
 

@@ -3,16 +3,18 @@
 
 #include<iostream>
 
+#include"string.h"
+
 class Produs {
 private:
     int id;
-    char* denumire;
-    char* marca;
-    char* descriere;
+    std::string denumire;
+    std::string marca;
+    std::string descriere;
     float pret;
 
 public:
-    Produs(int id, const char* denumire, const char* marca, const char* descriere, float pret);
+    Produs(int id, const std::string denumire, const std::string marca, const std::string descriere, float pret);
 
     Produs();
 
@@ -28,17 +30,17 @@ public:
 
     int getId() const;
 
-    void setDenumire(const char* denumire);
+    void setDenumire(const std::string denumire);
 
-    char* getDenumire() const;
+    std::string getDenumire() const;
 
-    void setMarca(const char* marca);
+    void setMarca(const std::string marca);
 
-    char* getMarca() const;
+    std::string getMarca() const;
 
-    void setDescriere(const char* descriere);
+    void setDescriere(const std::string descriere);
 
-    char* getDescriere() const;
+    std::string getDescriere() const;
 
     void setPret(float pret);
 

@@ -2,6 +2,7 @@
 #define TELEVIZOR_H_INCLUDED
 
 #include<iostream>
+#include"string.h"
 
 #include"Produs.h"
 
@@ -9,13 +10,13 @@ class Televizor : public Produs
 {
 private:
     float dimensiuneEcran;
-    char* tipDisplay;
-    char* rezolutieEcran;
-    char* clasaConsum;
+    std::string tipDisplay;
+    std::string rezolutieEcran;
+    std::string clasaConsum;
 
 public:
-    Televizor(int id, const char* denumire, const char* marca, const char* descriere, float pret,
-              float dimensiuneEcran, const char* tipDisplay, const char* rezolutieEcran, const char* clasaConsum);
+    Televizor(int id, const std::string denumire, const std::string marca, const std::string descriere, float pret,
+              float dimensiuneEcran, const std::string tipDisplay, const std::string rezolutieEcran, const std::string clasaConsum);
 
     Televizor();
 
@@ -31,17 +32,17 @@ public:
 
     float getDimensiuneEcran() const;
 
-    void setTipDisplay(const char* tipDisplay);
+    void setTipDisplay(const std::string tipDisplay);
 
-    char* getTipDisplay() const;
+    std::string getTipDisplay() const;
 
-    void setRezolutieEcran(const char* rezolutieEcran);
+    void setRezolutieEcran(const std::string rezolutieEcran);
 
-    char* getRezolutieEcran() const;
+    std::string getRezolutieEcran() const;
 
-    void setClasaConsum(const char* clasaConsum);
+    void setClasaConsum(const std::string clasaConsum);
 
-    char* getClasaConsum() const;
+    std::string getClasaConsum() const;
 
     void afiseaza() const override;
 };
